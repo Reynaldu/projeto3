@@ -25,13 +25,8 @@
           margin: 140px auto;
          
         }
-        input:invalid{
-          border-color:red ;
-        }
-
-        input:focus{
-          outline: none;
-        }
+      
+       
 
         input, textarea{
           cursor: pointer;
@@ -51,20 +46,16 @@
       
       
         <form class="form" id="form">
-           
-          <div class="form-group">
-            <label for="nome">Nome:</label>
-            <input class="form-control  required"  type="text" id="nome" placeholder="Digite seu nome" oninput="nameValidate()">
-            <span class="span-required">Nome deve ter mais de 3 caracteres</span>
-
-          </div>
-          
          
-          <div class="form-group">
-            <label for="email">E-mail:</label>
-            <input class="form-control required" type="email" id="email" placeholder="Digite seu E-mail" onblur="validarEmail()" onfocus="redefinirMsg()" id="email">
-            <span class="span-required" id="error-email">Digite email válido</span>
-          </div>
+          <div>
+            <input type="text" placeholder="Digite seu nome" class="inputs required" oninput="nameValidate()">
+            <span class="span-required">Nome deve ter no mínimo 3 caracteres</span>
+        </div>
+          
+        <div>
+          <input type="email" placeholder="Digite seu melhor email" class="inputs required" oninput="emailValidate()">
+          <span class="span-required">Digite um email válido</span>
+      </div>
 
           
           <div class="form-group">
@@ -88,49 +79,50 @@
   </body>
 
   <script>
+     const form   = document.getElementById('form');
+    const campos = document.querySelectorAll('.required');
+    const spans  = document.querySelectorAll('.span-required');
+    const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
-const form = document.getElementById('form')
-const campos = document.querySelectorAll('.required')
-const span = document.querySelectorAll('.span-required')
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        nameValidate();
+        emailValidate();
+        mainPasswordValidate();
+        comparePassword();
+    });
 
-
-function seteError(index){
-  campos[index].style.border = '2px solid red';
-  span[index].style.display = 'block';
-}
-
-function removeError(index){
-  campos[index].style.border = '';
-  span[index].style.display = 'none';
-}
-
-
-
-
-
-function nameValidate(){
-    if(campos[0].value.length < 3)
-    {
-       seteError(0)
+    function setError(index){
+        campos[index].style.border = '2px solid #e63636';
+        spans[index].style.display = 'block';
     }
 
-    else{
-        removeError(0)
-    }
-}
-
-function nameValidate(){
-    if(campos[1].value.length < @)
-    {
-       seteError(1)
+    function removeError(index){
+        campos[index].style.border = '';
+        spans[index].style.display = 'none';
     }
 
-    else{
-        removeError(1)
+    function nameValidate(){
+        if(campos[0].value.length < 3)
+        {
+            setError(0);
+        }
+        else
+        {
+            removeError(0);
+        }
     }
-}
 
-
+    function emailValidate(){
+        if(!emailRegex.test(campos[1].value))
+        {
+            setError(1);
+        }
+        else
+        {
+            removeError(1);
+        }
+    }
 
   </script>
 </html>
