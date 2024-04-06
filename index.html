@@ -7,11 +7,31 @@
 
 
        <style>
-           *{
-               margin: 0;
-               padding: 0;
+           body{
+            font-family:Arial, Helvetica, sans-serif ;
+           }
 
-            }
+           fieldset{
+            padding:20px ;
+            border: 1px solid #ccc;
+            background: rgb(238, 237, 236);
+            
+           }
+
+           legend{
+            font-weight: bolder;
+           }
+
+           label{
+            display: block;
+            cursor: pointer;
+           }
+
+           input{
+            width: 300px;
+           }
+         
+           
        </style>
 
 
@@ -19,14 +39,37 @@
 </head>
 
    <body>
-        
-    <form>
+      
+        <form>
+            <fieldset>
+                <legend>FORMULARIO</legend>
+           
 
-        NOME:
-        <input type="text" name="nome">
-        
+                    <div>
+                        <label for="inome">Nome:</label>
+                        <input type="text" name="nome" id="inome">
+                    </div>
 
-    </form>
+                    <div>
+                        <label for="iemail">Email:</label>
+                        <input type="email" name="email" id="iemail">
+                    </div>
+
+                    <div>
+                        <label for="iassunto">Assunto</label>
+                        <input type="text" name="assunto" id="iassunto">
+                    </div>
+
+                    <label for="imensagem">MENSAGEM:</label>
+                    <textarea name="mensagem" id="imensagem" cols="39" rows="10" ></textarea><br><br>
+
+                    <input type="submit" name="ENVIAR">
+
+                </fieldset>
+
+                  
+
+        </form>
    
 
 
