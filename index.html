@@ -9,26 +9,48 @@
        <style>
            body{
             font-family:Arial, Helvetica, sans-serif ;
+           background:rgb(219, 150, 150);
            }
 
+       
            fieldset{
+            width: 400px;
             padding:20px ;
             border: 1px solid #ccc;
-            background: rgb(238, 237, 236);
+            border-radius: 10px;
+            background-color: rgba(255,255,255,0.3);
+            margin:  auto;
+            margin-top: 120px;
             
            }
 
            legend{
             font-weight: bolder;
+            
            }
 
            label{
             display: block;
             cursor: pointer;
+          
+           
            }
 
            input{
-            width: 300px;
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            padding: 5px;
+           }
+
+           input.submit{
+            color: #ffffff;
+            background: rgb(190, 115, 115);
+            border: 2px;
+           }
+           textarea{
+            width: 100%;
+            border-radius: 10px;
            }
          
            
@@ -40,38 +62,41 @@
 
    <body>
       
-        <form>
-            <fieldset>
-                <legend>FORMULARIO</legend>
-           
+        <div id="container">
+            <form>
+                <fieldset>
+                    <legend>FORMULARIO</legend>
+            
+                        <div>
+                            <label for="inome">Nome:</label>
+                            <input type="text" name="nome" id="inome"
+                            placeholder="Digite seu nome">
+                        </div>
 
-                    <div>
-                        <label for="inome">Nome:</label>
-                        <input type="text" name="nome" id="inome">
-                    </div>
+                        <div>
+                            <label for="iemail">Email:</label>
+                            <input type="email" name="email" id="iemail" placeholder="Digite seu email">
+                        </div>
 
-                    <div>
-                        <label for="iemail">Email:</label>
-                        <input type="email" name="email" id="iemail">
-                    </div>
+                        <div>
+                            <label for="iassunto">Assunto:</label>
+                            <input type="text" name="assunto" id="iassunto" >
+                        </div>
 
-                    <div>
-                        <label for="iassunto">Assunto</label>
-                        <input type="text" name="assunto" id="iassunto">
-                    </div>
+                        <label for="imensagem">Mensagem:</label>
+                        <textarea name="mensagem" id="imensagem" cols="39" rows="10" placeholder="Digite a sua mensagem" ></textarea><br><br>
 
-                    <label for="imensagem">MENSAGEM:</label>
-                    <textarea name="mensagem" id="imensagem" cols="39" rows="10" ></textarea><br><br>
+                        <input class="submit" type="submit" name="ENVIAR" >
+                    </fieldset>
+            
+            </form>
+        </div>
 
-                    <input type="submit" name="ENVIAR">
+       <script>
 
-                </fieldset>
-
-                  
-
-        </form>
-   
+         
 
 
+       </script>
    </body>
 </html>
